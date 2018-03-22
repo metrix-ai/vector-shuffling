@@ -10,12 +10,12 @@ shuffle :: MVector s a -> A.StdGen -> ST s A.StdGen
 shuffle v gen =
   loop gen (length v)
   where
-    loop !gen !i =
+    loop gen i =
       if i <= 1
         then return gen
         else
           let
-            (index, gen') = A.randomR (0, i') gen
+            (index, !gen') = A.randomR (0, i') gen
             i' = i - 1
             in do
               swap v i' index
