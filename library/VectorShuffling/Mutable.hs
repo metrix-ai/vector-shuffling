@@ -15,7 +15,7 @@ shuffle v gen =
         then return gen
         else
           let
-            (index, !gen') = A.randomR (0, i') gen
+            (index, gen') = A.randomR (0, i') gen
             i' = i - 1
             in do
               swap v i' index
